@@ -20,7 +20,7 @@ ll //比ls更加详细的查看列表信息
 
 ## 添加文件至Git仓库相关操作
 
-- 使用`git add filename`命令将工作区的文件提交到Git的暂存区,或者将`filename`改成`.`将所有文件添加到暂存区  
+- 使用`git add <filename>`命令将工作区的文件提交到Git的暂存区,或者将`<filename>`改成`.`将所有文件添加到暂存区  
 - 使用`git commit -m <summary>`命令将暂存区文件添加到分支(即文件树)
 - 如何理解Git的工作区,暂存区和分支,如下图所示:![image-20220907210503966](D:\GitHub\StudyNotes\git学习\image-20220907210503966.png)
 
@@ -39,15 +39,15 @@ ll //比ls更加详细的查看列表信息
 
 ### Git撤销修改
 
-- **工作区撤销的作：**使用`git restore filename `,文件不仅要写文件名还要加上后缀名，该命令相当于将暂存区的文件回退到工作区，回到上一次`git add`
-- **提交到暂存区而没有提交到分支的撤销操作：**`git restore --staged filename`可以把暂存区的修改回退到上一次commit之前，就是把当前HEAD内容回退到暂存区。
-  - 更加详细的解释`git restore --source`,该命令可以指定从哪个源恢复内容到文件，例如直接从分支恢复文件到工作区：`git restore --source HEAD filename`
+- **工作区撤销的作：**使用`git restore <<filename>> `,文件不仅要写文件名还要加上后缀名，该命令相当于将暂存区的文件回退到工作区，回到上一次`git add`
+- **提交到暂存区而没有提交到分支的撤销操作：**`git restore --staged <<filename>>`可以把暂存区的修改回退到上一次commit之前，就是把当前HEAD内容回退到暂存区。
+  - 更加详细的解释`git restore --source`,该命令可以指定从哪个源恢复内容到文件，例如直接从分支恢复文件到工作区：`git restore --source HEAD <filename>`
 - **从分支撤销操作：** 参考上一节回退版本，使用`git reset --hard HEAD^`
 
 ### Git删除文件
 
-- `git rm filename`命令删除一个文件，并提交到暂存区
-  - 当你是误删时，可以使用上一节的`git restore --staged filename`恢复，但是未提交的修改会丢失（当然你可以去windows回收站看看🐶）
+- `git rm <filename>`命令删除一个文件，并提交到暂存区
+  - 当你是误删时，可以使用上一节的`git restore --staged <filename>`恢复，但是未提交的修改会丢失（当然你可以去windows回收站看看🐶）
 
 ### Git远程仓库
 
@@ -61,8 +61,13 @@ ll //比ls更加详细的查看列表信息
 
 ### Git分支管理
 
+- 查看分支：`git branch`
+- 创建分支：`git branch <name>`
+- 切换分支：`git switch <name>`
+- 创建并切换到该分支：`git switch -c <name>`
+- 合并分支：`git merge <name>`
+- 删除分支：`git branch -d <name>`
 
 
 
 
-### 
