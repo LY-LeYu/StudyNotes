@@ -66,7 +66,29 @@ ll //比ls更加详细的查看列表信息
 - 切换分支：`git switch <name>`
 - 创建并切换到该分支：`git switch -c <name>`
 - 合并分支：`git merge <name>`
-- 删除分支：`git branch -d <name>`
+- 删除分支：`git branch -d <name>`，当你未合并该分支就想强制删除该分支：`git branch -D <name>`
+- 当主分支和其他分支在相同地方有不同修改时，也可以使用`git status`查看冲突，发生冲突时无法合并分支，会报错，所以要手动解决冲突再合并分支。
+- 合并分支图查看：`git log --graph`
+- **Git的分支合并默认为`fast forward`模式，这样不利于长时间开发，所以有时需要禁用该模式：`git merge --no-ff -m <summary>`,使用该命令会保留原先的分支并且通过commit保留分支的`commit id`**
+
+### 暂存内容
+
+- 有时，你在当前分支工作未完成时，需要在新分支工作且并不能提交当前分支时，你需要暂存你的分支工作内容可以使用：`git stash`
+- 当你想要恢复你的暂存内容时可以使用：`git stash apply`,注意，这仅仅会恢复你的暂存内容，但不删除这个暂存备份，你还需要使用`git stash drop`来删除stash内容。也可以使用便捷指令：`git stash pop`既恢复了stash内容也将其删除。
+- 你可以有多个暂存内容，使用`git stash list`查看你暂存了哪些内容，并选择恢复哪个
+- 多个stash恢复时使用`git stash apply stash@{0}`,其中的0是stash对应的编号，按情况修改。
+
+### 复制commit提交到你的当前分支
+
+多个分支工作时，你如果只想把之前分支的某个commit复制到当前分支，你可以使用`git cherry-pick commit id `,即可将特定的commit内容复制到当前分支
+
+### 推送特定分支到远程
+
+将本地分支推送到远程，推送当前分支你可以直接使用`git push`,当你要指定推送某个分支时使用`git push origin <branch-name>`
+
+
+
+
 
 
 
