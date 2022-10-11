@@ -5,7 +5,7 @@
 ```
 mkdir xxx //创建一个文件夹
 touch xxx.txt //创建一个文件,以创建txt文件为例
-cd file folde route    //进入某个文件夹下
+cd file folde route    //进入某个文件夹下，Linux的根目录为'/',路径划分也使用斜杠
 cd ..   //退回上一个路径
 ls //查看文件列表
 ll //比ls更加详细的查看列表信息
