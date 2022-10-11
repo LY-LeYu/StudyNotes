@@ -107,7 +107,7 @@ ll //比ls更加详细的查看列表信息
 
 - 连接远程仓库需要创建SSH key，SSH key是一种加密密钥，用于证明自己的身份，可以在C盘用户目录下看到.ssh目录，其中的`id_ras`和`id_rsa.pub`分别是自己的私钥和公钥。
 - 没有SSH Key可以是使用`ssh-keygen -t rsa -C "email"`来创建自己的SSH Key - 将SSH key中的公钥添加到Github或者Gitee即可将自己的本地分支上传到远程仓库 
-- **将本地仓库与远程仓库关联:**`git remote add origin git@Github.com:用户名/仓库名.git`
+- **将本地仓库与远程仓库关联:**`git remote add <远程库名字> git@Github.com:用户名/仓库名.git`，通常默认`<远程库名字>`为`origin`,下文中的`origin`即远程库，如果你的远程库不叫origin，请修改
 -  **关联本地主干和远程主干：**`git push -u origin master` ,当第一次关联仓库后，需要使用本指令，之后可以省略`-u`参数，`-u`的含义是`–- set-upstream`关联两个分支，这在之后分支推送也将用到。
 - **删除本地库与远程库关联：**`git remote rm origin` 
 - **查看本地库所关联的远程库的信息：**`git remote -v`
